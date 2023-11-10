@@ -62,10 +62,6 @@
 13. Несколько прав меняем через ssh:
 	Изменяем права доступа к файлу агента (0777?): sudo chmod 0777 /etc/CODESYSControl_User.cfg
 	Добавляем в файл /etc/CODESYSControl_User.cfg:	[SysProcess] Command=AllowAll (типа все команды на исполнение. А можно Command.0=reboot Command.1=echo)
-	Убираем управление пользователями в codesys в файле /etc/CODESYSControl_User.cfg: [CmpUserMgr] SECURITY.UserMgmtEnforce=NO
-	Для разрешения скачивать файлы меняем в файле /etc/CODESYSControl_User.cfg: [CmpWebServerHandlerV3] AllowFileTransferServices=1,
-		а путь к файлу '$$PlcLogic$$/Application/Manual_V1.pdf', тогда он будет падать в папку прямо из дерева проекта. Можно
-		также указывать $$visu$$. А свои пути можно прописывать так в файле /etc/CODESYSControl_User.cfg: [SysFile] PlaceholderFilePath.1=/home/pi, $my_new_path$
 
 14. Права доступа на папку исполнения CodeSys: sudo chmod -R 0777 /var/opt/codesys
 	Изменить порт визуализации: /etc/CODESYSControl.cfg: [CmpWebServer] WebServerPortNr=80
